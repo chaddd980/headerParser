@@ -10,7 +10,7 @@ router.get('/api/whoami', function(req, res) {
   // console.log(req.headers["accept-language"]);
   var language = req.headers["accept-language"].split(",")[0];
   var userAgent = /\(([^)]+)\)/.exec(req.headers["user-agent"])[1];
-  var ip = /([^:]*)$/.exec(req.connection.remoteAddress)[0];
+  var ip = /([^:]*)$/.exec(req.socket.remoteAddress)[0];
   debugger
   console.log(ip);
   res.json({ language: language, software: userAgent, ipaddress: ip});
